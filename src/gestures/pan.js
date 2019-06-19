@@ -5,7 +5,9 @@ export default function panable (sprite, inertia) {
   }
 
   function touchStart (e) {
-    start(e.data.originalEvent.targetTouches[0])
+    if (e.data.originalEvent.targetTouches && e.data.originalEvent.targetTouches[0]) {
+      start(e.data.originalEvent.targetTouches[0])
+    }
   }
 
   function start (t) {
