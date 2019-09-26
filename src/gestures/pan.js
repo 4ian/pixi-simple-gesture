@@ -85,7 +85,7 @@ export default function panable (sprite, inertia) {
   }
 
   function touchEnd (e) {
-    end(e, e.data.originalEvent.changedTouches[0])
+    end(e, e.data.originalEvent.changedTouches && e.data.originalEvent.changedTouches[0])
   }
 
   function end (e, t) {
@@ -96,7 +96,7 @@ export default function panable (sprite, inertia) {
       sprite._pan = null
       return
     }
-    if (inertia) {
+    if (inertia && t) {
       if (sprite._pan.intervalId) {
         return
       }
